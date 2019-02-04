@@ -1,10 +1,12 @@
 # tf-sample-01
+## Problem
+Data source `google_compute_zones` ignores or does not inherit `project` defined in a parent module.
+I found that I could get around this by hardcoding the the value of `project` in the `google_compute_zones` data block, or setting the the env var `GOOGLE_PROJECT`, but for my use case, I need it defined only once in a parent module and inherited by all child modules.
 
 Relevant file is located at `gcp/modules/iroha-instance/variables.tf`.
 Notice that `project` is defined in `gcp/main.tf`
 
 To reproduce, start from root of repository:
-
 ```
 $ terraform init
 Initializing modules...
